@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        TabView(selection: $router.selection) {
+            SearchScreen()
+                .tabItem({
+                    Text("Search")
+                    Image(systemName: "magnifyingglass.circle.fill")
+                })
+                .tag(0)
+                .environmentObject(router)
+            AlbumsScreen()
+                .tabItem({
+                    Text("Albums")
+                    Image(systemName: "music.note.list")
+                })
+                .tag(1)
+        }
+        .accentColor(.red)
     }
 }
