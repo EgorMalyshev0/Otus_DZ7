@@ -10,13 +10,35 @@ import SwiftUI
 struct SearchScreen: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var viewModel: AlbumsViewModel
+    @State var searchText: String = ""
+    
+    private let publisher = NotificationCenter.default.publisher(for: NSNotification.searchFinished.name)
     
     var body: some View {
-        Button("Search") {
+        NavigationView{
+            VStack {
+                TextField("Search", text: $searchText)
+                    .border(.red, width: 1)
+                    .padding()
+                Button("Search for music") {
+                    viewModel.performSearch(with: searchText)
+                }
+                .tint(.red)
+                .padding()
+            }
+        }
+        .onTapGesture {
+            hideKeyboard()
+        }
+        .onReceive(publisher) { _ in
             router.selection = 1
         }
-        .tint(.red)
-        .padding()
+        
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

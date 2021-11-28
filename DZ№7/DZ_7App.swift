@@ -11,10 +11,13 @@ import SwiftUI
 struct DZ_7App: App {
     
     @ObservedObject var router: Router = .init()
+    @ObservedObject var viewModel: AlbumsViewModel = .init()
 
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(router)
+            ContentView()
+                .environmentObject(router)
+                .environmentObject(viewModel)
         }
     }
 }

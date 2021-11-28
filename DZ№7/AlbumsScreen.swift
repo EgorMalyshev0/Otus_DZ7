@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct AlbumsScreen: View {
+    
+    @EnvironmentObject var viewModel: AlbumsViewModel
+        
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(viewModel.albums, id: \.self) {
+                    AlbumsScreenCell(album: $0)
+                }
+            }
+            .padding(.horizontal, 20)
+        }
+        .padding(.vertical, 10)
     }
 }
 

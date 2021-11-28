@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var router: Router
+    @EnvironmentObject var viewModel: AlbumsViewModel
     
     var body: some View {
         TabView(selection: $router.selection) {
@@ -20,12 +21,14 @@ struct ContentView: View {
                 })
                 .tag(0)
                 .environmentObject(router)
+                .environmentObject(viewModel)
             AlbumsScreen()
                 .tabItem({
                     Text("Albums")
                     Image(systemName: "music.note.list")
                 })
                 .tag(1)
+                .environmentObject(viewModel)
         }
         .accentColor(.red)
     }
