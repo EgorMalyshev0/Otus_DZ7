@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct AlbumsScreenCell: View {
     
@@ -13,20 +14,23 @@ struct AlbumsScreenCell: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack() {
+                WebImage(url: URL(string: album.artworkUrl100))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(5)
                 Text(album.collectionName)
                     .font(.system(size: 13, weight: .light, design: .default))
                     .foregroundColor(.primary)
                     .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text(album.artistName)
                     .font(.system(size: 13, weight: .light, design: .default))
                     .foregroundColor(.secondary)
                     .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 100)
-        .background(Color.blue)
     }
 }
 
