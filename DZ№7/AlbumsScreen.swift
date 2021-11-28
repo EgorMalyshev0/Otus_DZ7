@@ -21,8 +21,10 @@ struct AlbumsScreen: View {
                 }
             }
             .padding(.horizontal, 20)
+            Text("Nothing...")
+                .opacity(viewModel.albums.isEmpty ? 1 : 0)
         }
-        .padding(.vertical, 10)
+        .padding(.top, 10)
     }
 }
 

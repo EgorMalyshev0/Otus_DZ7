@@ -8,17 +8,7 @@
 import Foundation
 
 struct Album: Codable, Hashable {    
-//    var id = UUID().uuidString
-    let artistName, collectionName, artworkUrl100, primaryGenreName, copyright: String
-    let collectionId: Int
-    
-    static let mock = Album(artistName: "Artist",
-                            collectionName: "CollectionName",
-                            artworkUrl100: "",
-                            primaryGenreName: "Rap",
-                            copyright: "",
-                            collectionId: 1
-    )
+    let artistName, collectionName, artworkUrl100: String
 }
 
 struct AlbumListResponse: Codable {

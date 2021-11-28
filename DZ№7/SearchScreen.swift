@@ -16,8 +16,9 @@ struct SearchScreen: View {
     private let publisher = NotificationCenter.default.publisher(for: NSNotification.searchFinished.name)
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack {
+                Text("Enter search request to find music albums with iTunes API:")
                 TextField("Search", text: $searchText)
                     .border(.red, width: 1)
                     .padding()
@@ -26,6 +27,9 @@ struct SearchScreen: View {
                 }
                 .tint(.red)
                 .padding()
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .opacity(viewModel.isLoading ? 1 : 0)
             }
         }
         .onTapGesture {

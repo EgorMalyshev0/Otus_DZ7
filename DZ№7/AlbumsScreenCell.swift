@@ -33,9 +33,3 @@ struct AlbumsScreenCell: View {
         }
     }
 }
-
-struct AlbumsScreenCell_Previews: PreviewProvider {
-    static var previews: some View {
-        AlbumsScreenCell(album: Album.mock)
-    }
-}

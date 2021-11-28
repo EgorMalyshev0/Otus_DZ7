@@ -24,6 +24,10 @@
 		DE1F073A274EB16A004057A0 /* AlbumsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F0739274EB16A004057A0 /* AlbumsApi.swift */; };
 		DE86BA4727538C3200248B0C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86BA4627538C3200248B0C /* Notification.swift */; };
 		DE86BA4A27539D2400248B0C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DE86BA4927539D2400248B0C /* SDWebImageSwiftUI */; };
+		DE86BA512753C42900248B0C /* RealmAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86BA502753C42900248B0C /* RealmAlbum.swift */; };
+		DE86BA532753C57400248B0C /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86BA522753C57400248B0C /* RealmRepository.swift */; };
+		DE86BA572753CB1E00248B0C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DE86BA562753CB1E00248B0C /* Realm */; };
+		DE86BA592753CB1E00248B0C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE86BA582753CB1E00248B0C /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,8 @@
 		DE1F0737274EB082004057A0 /* AlbumsNetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsNetworkRouter.swift; sourceTree = "<group>"; };
 		DE1F0739274EB16A004057A0 /* AlbumsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsApi.swift; sourceTree = "<group>"; };
 		DE86BA4627538C3200248B0C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		DE86BA502753C42900248B0C /* RealmAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAlbum.swift; sourceTree = "<group>"; };
+		DE86BA522753C57400248B0C /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE86BA592753CB1E00248B0C /* RealmSwift in Frameworks */,
+				DE86BA572753CB1E00248B0C /* Realm in Frameworks */,
 				DE86BA4A27539D2400248B0C /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,15 +85,14 @@
 		DE1F0713274E9356004057A0 /* DZ№7 */ = {
 			isa = PBXGroup;
 			children = (
-				DE1F072E274EB044004057A0 /* Network */,
 				DE1F0714274E9356004057A0 /* DZ_7App.swift */,
 				DE1F0716274E9356004057A0 /* ContentView.swift */,
 				DE1F0722274E93B3004057A0 /* SearchScreen.swift */,
-				DE1F0737274EB082004057A0 /* AlbumsNetworkRouter.swift */,
-				DE1F0726274E942F004057A0 /* Router.swift */,
-				DE1F0739274EB16A004057A0 /* AlbumsApi.swift */,
 				DE1F0724274E93F4004057A0 /* AlbumsScreen.swift */,
+				DE1F0726274E942F004057A0 /* Router.swift */,
 				DE1F072C274EA9CF004057A0 /* AlbumsViewModel.swift */,
+				DE86BA542753C72E00248B0C /* StorageService */,
+				DE1F072E274EB044004057A0 /* NetworkService */,
 				DE86BA4627538C3200248B0C /* Notification.swift */,
 				DE1F0728274E9D2C004057A0 /* AlbumsScreenCell.swift */,
 				DE1F072A274E9D81004057A0 /* Album.swift */,
@@ -103,14 +110,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DE1F072E274EB044004057A0 /* Network */ = {
+		DE1F072E274EB044004057A0 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				DE1F0739274EB16A004057A0 /* AlbumsApi.swift */,
+				DE1F0737274EB082004057A0 /* AlbumsNetworkRouter.swift */,
 				DE1F072F274EB044004057A0 /* URLRequestBuilder.swift */,
 				DE1F0730274EB044004057A0 /* ApiRouter.swift */,
 				DE1F0731274EB044004057A0 /* NetworkService.swift */,
 			);
-			path = Network;
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		DE86BA542753C72E00248B0C /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				DE86BA502753C42900248B0C /* RealmAlbum.swift */,
+				DE86BA522753C57400248B0C /* RealmRepository.swift */,
+			);
+			path = StorageService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +149,8 @@
 			name = "DZ№7";
 			packageProductDependencies = (
 				DE86BA4927539D2400248B0C /* SDWebImageSwiftUI */,
+				DE86BA562753CB1E00248B0C /* Realm */,
+				DE86BA582753CB1E00248B0C /* RealmSwift */,
 			);
 			productName = "DZ№7";
 			productReference = DE1F0711274E9356004057A0 /* DZ№7.app */;
@@ -162,6 +182,7 @@
 			mainGroup = DE1F0708274E9356004057A0;
 			packageReferences = (
 				DE86BA4827539D2400248B0C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				DE86BA552753CB1E00248B0C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = DE1F0712274E9356004057A0 /* Products */;
 			projectDirPath = "";
@@ -190,11 +211,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1F0735274EB044004057A0 /* NetworkService.swift in Sources */,
+				DE86BA532753C57400248B0C /* RealmRepository.swift in Sources */,
 				DE1F072D274EA9CF004057A0 /* AlbumsViewModel.swift in Sources */,
 				DE1F0717274E9356004057A0 /* ContentView.swift in Sources */,
 				DE1F0733274EB044004057A0 /* URLRequestBuilder.swift in Sources */,
 				DE1F0725274E93F4004057A0 /* AlbumsScreen.swift in Sources */,
 				DE1F0727274E942F004057A0 /* Router.swift in Sources */,
+				DE86BA512753C42900248B0C /* RealmAlbum.swift in Sources */,
 				DE1F0715274E9356004057A0 /* DZ_7App.swift in Sources */,
 				DE1F0738274EB082004057A0 /* AlbumsNetworkRouter.swift in Sources */,
 				DE1F073A274EB16A004057A0 /* AlbumsApi.swift in Sources */,
@@ -415,6 +438,14 @@
 				kind = branch;
 			};
 		};
+		DE86BA552753CB1E00248B0C /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -422,6 +453,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE86BA4827539D2400248B0C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		DE86BA562753CB1E00248B0C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE86BA552753CB1E00248B0C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		DE86BA582753CB1E00248B0C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE86BA552753CB1E00248B0C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
