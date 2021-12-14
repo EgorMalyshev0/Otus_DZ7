@@ -15,7 +15,7 @@ struct AlbumsScreenCell: View {
     var body: some View {
         ZStack {
             VStack() {
-                WebImage(url: URL(string: album.artworkUrl100))
+                WebImage(url: URL(string: album.artworkUrl100 ?? ""))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(5)

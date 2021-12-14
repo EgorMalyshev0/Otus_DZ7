@@ -8,7 +8,8 @@
 import Foundation
 
 struct Album: Codable, Hashable {    
-    let artistName, collectionName, artworkUrl100: String
+    let artistName, collectionName: String
+    let artworkUrl100: String?
 }
 
 struct AlbumListResponse: Codable {

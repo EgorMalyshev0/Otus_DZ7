@@ -43,7 +43,7 @@ class RealmRepository {
         let realmAlbum = RealmAlbum()
         realmAlbum.artistName = album.artistName
         realmAlbum.collectionName = album.collectionName
-        realmAlbum.artworkUrl100 = album.artworkUrl100
+        realmAlbum.artworkUrl100 = album.artworkUrl100 ?? ""
         
 //        DispatchQueue.main.async {
             do {
